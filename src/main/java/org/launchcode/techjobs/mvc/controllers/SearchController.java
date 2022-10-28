@@ -33,15 +33,15 @@ public class SearchController {
                                        String searchType, @RequestParam(value="searchTerm")
                                        String searchTerm){
 model.addAttribute("columns", columnChoices);
-    model.addAttribute("searchTerm", searchTerm);
     model.addAttribute("searchType", searchType);
+    model.addAttribute("searchTerm", searchTerm);
 
     ArrayList<Job>jobs;
 
     if(searchTerm.equals(null)||searchTerm.equals("all")){
         jobs = JobData.findAll();
     } else {
-        jobs = JobData.findByColumnAndValue(searchTerm, searchType);
+        jobs = JobData.findByColumnAndValue(searchType, searchTerm);
     }
 model.addAttribute("jobs",jobs);
     return "search";
