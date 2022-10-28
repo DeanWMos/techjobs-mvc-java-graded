@@ -43,6 +43,7 @@ model.addAttribute("columns", columnChoices);
     } else {
         jobs = JobData.findByColumnAndValue(searchTerm, searchType);
     }
-
+model.addAttribute("jobs",jobs);
+    return "search";
 }
 }
